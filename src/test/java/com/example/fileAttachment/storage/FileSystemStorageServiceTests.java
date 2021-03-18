@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.uploadingfiles.storage;
+package com.example.fileAttachment.storage;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

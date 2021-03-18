@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.mongo;
+package com.example.fileAttachment.mongo;
 
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;

@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.mongo;
+package com.example.fileAttachment.mongo;
 
 import com.mongodb.MongoException;
 import org.springframework.beans.factory.annotation.Autowired;

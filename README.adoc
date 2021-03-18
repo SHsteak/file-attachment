@@ -79,7 +79,7 @@ bean and make itself ready for file uploads.
 
 The initial application already contains a few classes to deal with storing and loading
 the uploaded files on disk. They are all located in the
-`com.example.uploadingfiles.storage` package. You will use those in your new
+`com.example.fileAttachment.storage` package. You will use those in your new
 `FileUploadController`. The following listing (from
 `src/main/java/com/example/uploadingfiles/FileUploadController.java`) shows the file
 upload controller:

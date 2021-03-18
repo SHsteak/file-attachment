@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.storage;
+package com.example.fileAttachment.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

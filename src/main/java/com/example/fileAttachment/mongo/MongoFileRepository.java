@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.mongo;
+package com.example.fileAttachment.mongo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

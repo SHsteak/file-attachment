@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.mongo;
+package com.example.fileAttachment.mongo;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,8 @@
-package com.example.uploadingfiles;
+package com.example.fileAttachment;
 
-import com.example.uploadingfiles.mongo.MongoFileService;
-import com.example.uploadingfiles.storage.FileUploadController;
-import com.example.uploadingfiles.storage.StorageService;
+import com.example.fileAttachment.mongo.MongoFileService;
+import com.example.fileAttachment.storage.FileUploadController;
+import com.example.fileAttachment.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

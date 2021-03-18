@@ -1,4 +1,4 @@
-package com.example.uploadingfiles.storage;
+package com.example.fileAttachment.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

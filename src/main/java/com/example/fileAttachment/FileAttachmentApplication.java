@@ -1,7 +1,7 @@
-package com.example.uploadingfiles;
+package com.example.fileAttachment;
 
-import com.example.uploadingfiles.storage.StorageProperties;
-import com.example.uploadingfiles.storage.StorageService;
+import com.example.fileAttachment.storage.StorageProperties;
+import com.example.fileAttachment.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
