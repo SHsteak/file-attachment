@@ -1,0 +1,25 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  data:
+    mongodb:
+      host: 192.168.0.10
+      port: 27017
+      database: file
+  devtools:
+    restart:
+      enabled: true
+server:
+  compression:
+    enabled: true
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    session:
+      timeout: 14400

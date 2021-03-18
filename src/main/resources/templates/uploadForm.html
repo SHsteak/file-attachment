@@ -1,0 +1,54 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+<div th:if="${message}">
+    <h2 style="color: green;" th:text=" ${message}"/>
+    <hr>
+</div>
+
+<div>
+    <h2>local path upload/download</h2>
+    <form method="POST" enctype="multipart/form-data" action="/local/file">
+        <table>
+            <tr>
+                <td>File to upload:</td>
+                <td><input type="file" name="file"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Upload"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <ul>
+        <li th:each="file : ${localFiles}">
+            <a th:href="${file}" th:text="${file}"/>
+        </li>
+    </ul>
+</div>
+<hr>
+<div>
+    <h2>mongo file upload/download</h2>
+    <form method="POST" enctype="multipart/form-data" action="/mongo/file">
+        <table>
+            <tr>
+                <td>File to upload:</td>
+                <td><input type="file" name="file"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Upload"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <ul>
+        <li th:each="file : ${mongoFiles}">
+            <a th:href="${'/mongo/file/download/' + file.id}" th:text="${file.title}"/>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
