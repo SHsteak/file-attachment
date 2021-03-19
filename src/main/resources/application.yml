@@ -1,16 +1,51 @@
 spring:
-  servlet:
-    multipart:
-      max-file-size: 20MB
-      max-request-size: 20MB
+  application:
+    name: "file-attachment"
+  profiles:
+    group:
+      "prod": "prod, mongo, default"
+      "dev": "dev, mongo, default"
+      "local": "local, default"
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+logging:
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  devtools:
+    restart:
+      enabled: true
+logging:
+  level:
+    web: "DEBUG"
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+---
+spring:
+  config:
+    activate:
+      on-profile: "mongo"
   data:
     mongodb:
       host: 192.168.0.10
       port: 27017
       database: file
-  devtools:
-    restart:
-      enabled: true
+---
+spring:
+  config:
+    activate:
+      on-profile: "default"
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
 server:
   compression:
     enabled: true

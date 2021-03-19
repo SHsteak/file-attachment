@@ -26,3 +26,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+bootRun {
+    String activeProfile = System.properties['spring.profiles.active']
+    println("Profile ===> " + activeProfile)
+    systemProperty "spring.profiles.active", activeProfile
+}
