@@ -15,20 +15,19 @@
  */
 package com.example.fileAttachment.storage;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Random;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Random;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -37,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class FileSystemStorageServiceTests {
 
-	private StorageProperties properties = new StorageProperties();
+	private final StorageProperties properties = new StorageProperties();
 	private FileSystemStorageService service;
 
 	@BeforeEach
@@ -61,18 +60,14 @@ public class FileSystemStorageServiceTests {
 
 	@Test
 	public void saveRelativePathNotPermitted() {
-		assertThrows(StorageException.class, () -> {
-			service.store(new MockMultipartFile("foo", "../foo.txt",
-					MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
-		});
+		assertThrows(StorageException.class, () -> service.store(new MockMultipartFile("foo", "../foo.txt",
+				MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes())));
 	}
 
 	@Test
 	public void saveAbsolutePathNotPermitted() {
-		assertThrows(StorageException.class, () -> {
-			service.store(new MockMultipartFile("foo", "/etc/passwd",
-					MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes()));
-		});
+		assertThrows(StorageException.class, () -> service.store(new MockMultipartFile("foo", "/etc/passwd",
+				MediaType.TEXT_PLAIN_VALUE, "Hello, World".getBytes())));
 	}
 
 	@Test

@@ -10,25 +10,32 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class MongoFileService {
+
+    private final MongoFileRepository mongoFileRepo;
+
     @Autowired
-    private MongoFileRepository mongoFileRepo;
+    private MongoFileService(MongoFileRepository mongoFileRepository) {
+        this.mongoFileRepo = mongoFileRepository;
+    }
 
     // upload
     public String addMongoFile(MultipartFile file) throws IOException {
-        MongoFile mongoFile = new MongoFile(new String(file.getOriginalFilename().getBytes(StandardCharsets.UTF_8)));
+        MongoFile mongoFile = new MongoFile(new String(Objects.requireNonNull(file.getOriginalFilename()).getBytes(StandardCharsets.UTF_8)));
         mongoFile.setFile(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
         return mongoFileRepo.insert(mongoFile).getId();
     }
 
     // get
     public MongoFile getMongoFile(String id) {
-        return mongoFileRepo.findById(id).get();
+        Optional<MongoFile> mongoFile = mongoFileRepo.findById(id);
+        return mongoFile.orElse(null);
     }
-
 
     // get all
     public List<Map<String, String>> getMongoFiles() {
